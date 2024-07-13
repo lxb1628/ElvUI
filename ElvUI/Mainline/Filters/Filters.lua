@@ -637,6 +637,7 @@ G.unitframe.aurafilters.Blacklist = {
 		[374037]	= List(), -- Overwhelming Rage
 		[383600]	= List(), -- Surrounding Storm (Strunraan)
 		[390106]	= List(), -- Riding Along
+		[390435]	= List(), -- Exhaustion (Evoker lust debuff)
 		[392960]	= List(), -- Waygate Travel
 		[392992]	= List(), -- Silent Lava
 		[393798]	= List(), -- Activated Defense Systems
@@ -648,9 +649,6 @@ G.unitframe.aurafilters.Blacklist = {
 G.unitframe.aurafilters.Whitelist = {
 	type = 'Whitelist',
 	spells = {
-	-- WoW: Remix TEMPORARY STUFF
-		[440393]	= List(), -- Timerunner's Advantage
-		[424143] 	= List(), -- WoW Remix: Mists of Pandaria
 	-- Haste effects
 		[2825]		= List(), -- [Shaman] Bloodlust
 		[32182]		= List(), -- [Shaman] Heroism

@@ -1,3 +1,24 @@
+### Version 13.70 [ July 12th 2024 ]
+*   Cooldowns not finishing correctly.
+*   Achievement skin error on Cataclysm.
+
+### Version 13.69 [ July 10th 2024 ]
+*   SetCooldown error when using vehicles and Loss of Control cooldowns timers work again.
+*   Communities frame skin updated and the toggles updated for Minimap and Datatext.
+*   Visibility settings for Enchants, Gems, and Item Level for Inspect and Character.
+*   Skinned Swim timers on Classic.
+*   Blacklisted Evoker lust debuff.
+
+### Version 13.68 [ July 9th 2024 ]
+*   Enchant info to display with Item Level on Character and Inspect frames.
+*   Player nameplate not obeying Use Class Color option for Power.
+*   Translit tags sometimes not returning properly.
+*   Frame Level and Strata options for Unitframe power, auras, and frames.
+*   Hit Datatext not updating in some situations.
+*   Attack Power Datatext now has label options.
+*   Role Checkboxes set to the correct level on Guild Finder.
+*   New tags [health:percent-with-absorbs:nostatus] and [health:current:name]
+
 ### Version 13.67 [ June 26th 2024 ]
 *   Skinned LFG and Dressing Room scrollbar.
 *   Guild reputation progress bar fixed.
