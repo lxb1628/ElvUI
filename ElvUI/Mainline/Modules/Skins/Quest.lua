@@ -177,25 +177,6 @@ function S:QuestInfoItem_OnClick() -- self is not S
 	self.Name:SetTextColor(1, .8, .1)
 end
 
-function S:QuestLogQuests_Update() -- self is not S
-	for _, child in next, { _G.QuestMapFrame.QuestsFrame.Contents:GetChildren() } do
-		if child.ButtonText and not child.questID then
-			child:Size(16)
-
-			for _, tex in next, { child:GetRegions() } do
-				if tex.GetAtlas then
-					local atlas = tex:GetAtlas()
-					if atlas == 'Campaign_HeaderIcon_Closed' or atlas == 'Campaign_HeaderIcon_ClosedPressed' then
-						tex:SetTexture(E.Media.Textures.PlusButton)
-					elseif atlas == 'Campaign_HeaderIcon_Open' or atlas == 'Campaign_HeaderIcon_OpenPressed' then
-						tex:SetTexture(E.Media.Textures.MinusButton)
-					end
-				end
-			end
-		end
-	end
-end
-
 function S:QuestInfo_Display(parentFrame) -- self is template, not S
 	local rewardsFrame = _G.QuestInfoFrame.rewardsFrame
 	for i, questItem in ipairs(rewardsFrame.RewardButtons) do
@@ -281,6 +262,7 @@ function S:QuestInfo_Display(parentFrame) -- self is template, not S
 		_G.QuestInfoQuestType:SetTextColor(1, 1, 1)
 		_G.QuestInfoRewardsFrame.ItemChooseText:SetTextColor(1, 1, 1)
 		_G.QuestInfoRewardsFrame.ItemReceiveText:SetTextColor(1, 1, 1)
+		_G.QuestInfoAccountCompletedNotice:SetTextColor(0, 0.9, 0.6)
 
 		if _G.QuestInfoRewardsFrame.SpellLearnText then
 			_G.QuestInfoRewardsFrame.SpellLearnText:SetTextColor(1, 1, 1)
@@ -312,18 +294,6 @@ function S:QuestInfo_Display(parentFrame) -- self is template, not S
 			end
 		end
 	end
-end
-
-function S:CampaignCollapseButton_UpdateState(isCollapsed) -- self is button, not S
-	if isCollapsed then
-		self:SetNormalTexture(E.Media.Textures.PlusButton)
-		self:SetPushedTexture(E.Media.Textures.PlusButton)
-	else
-		self:SetNormalTexture(E.Media.Textures.MinusButton)
-		self:SetPushedTexture(E.Media.Textures.MinusButton)
-	end
-
-	self:Size(16)
 end
 
 function S:QuestFrameProgressItems_Update() -- self is not S
@@ -382,8 +352,6 @@ function S:BlizzardQuestFrames()
 
 	hooksecurefunc('QuestInfo_Display', S.QuestInfo_Display)
 	hooksecurefunc('QuestInfoItem_OnClick', S.QuestInfoItem_OnClick)
-	hooksecurefunc('QuestLogQuests_Update', S.QuestLogQuests_Update) -- Skin the Plus Minus buttons in the QuestLog
-	hooksecurefunc(_G.CampaignCollapseButtonMixin, 'UpdateState', S.CampaignCollapseButton_UpdateState) -- Plus Minus buttons for the CampaignHeaders in the QuestLog
 
 	for _, frame in pairs({'HonorFrame', 'XPFrame', 'SpellFrame', 'SkillPointFrame', 'ArtifactXPFrame', 'TitleFrame', 'WarModeBonusFrame'}) do
 		HandleReward(_G.MapQuestInfoRewardsFrame[frame])
